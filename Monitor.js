@@ -44,7 +44,7 @@ function formatTON(ton) {
 }
 
 function formatName(name) {
-  return name.replace(/(4)/g, '($1)');
+  return name.replace(/(4)/g, '<ins>$1</ins>');
 }
 
 function analyze(items, isRestricted) {
@@ -127,22 +127,22 @@ async function fetchNftData() {
     let text = `<b>[888] 地板价</b>\n`;
 
     if (unrestricted.cheapestWith4) {
-      text += `<b>[含4]</b>  <a href="${getPurchaseLink(unrestricted.cheapestWith4)}">${formatName(unrestricted.cheapestWith4.name)}</a> - 💎${formatTON(prices.unrestrictedWith4)}\n`;
+      text += `<b>[含4]</b>  <a href="${getPurchaseLink(unrestricted.cheapestWith4)}">${formatName(unrestricted.cheapestWith4.name)}</a> 💎<b>${formatTON(prices.unrestrictedWith4)}</b>\n`;
     }
 
     if (unrestricted.cheapestWithout4) {
-      text += `<b>[无4]</b>  <a href="${getPurchaseLink(unrestricted.cheapestWithout4)}">${formatName(unrestricted.cheapestWithout4.name)}</a> - 💎${formatTON(prices.unrestrictedWithout4)}\n`;
+      text += `<b>[无4]</b>  <a href="${getPurchaseLink(unrestricted.cheapestWithout4)}">${formatName(unrestricted.cheapestWithout4.name)}</a> 💎<b>${formatTON(prices.unrestrictedWithout4)}</b>\n`;
     }
 
     text += `=======================\n`;
     text += `<b>[888] 地板价~受限</b>\n`;
 
     if (restricted.cheapestWith4) {
-      text += `<b>[含4]</b>  <a href="${getPurchaseLink(restricted.cheapestWith4)}">${formatName(restricted.cheapestWith4.name)}</a> - 💎${formatTON(prices.restrictedWith4)}\n`;
+      text += `<b>[含4]</b>  <a href="${getPurchaseLink(restricted.cheapestWith4)}">${formatName(restricted.cheapestWith4.name)}</a> 💎<b>${formatTON(prices.restrictedWith4)}</b>\n`;
     }
 
     if (restricted.cheapestWithout4) {
-      text += `<b>[无4]</b>  <a href="${getPurchaseLink(restricted.cheapestWithout4)}">${formatName(restricted.cheapestWithout4.name)}</a> - 💎${formatTON(prices.restrictedWithout4)}\n`;
+      text += `<b>[无4]</b>  <a href="${getPurchaseLink(restricted.cheapestWithout4)}">${formatName(restricted.cheapestWithout4.name)}</a> 💎<b>${formatTON(prices.restrictedWithout4)}</b>\n`;
     }
 
     return { text, prices };
